@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOD OF WAR</title>
+<style>
+body {
+    background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    perspective: 1000px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    text-align: center;
+}
+.card-front {
+    background-color: rgba(85, 85, 85, 0.8); /* Semi-transparente para ver o fundo */
+}
+.card-back {
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparente para ver o fundo */
+    transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>GOD OF WAR</h1>
+
+<div id="cards-container"></div>
+
+<script>
+const questions = [
+    { question: "Qual é o nome do filho de Kratos?", answer: "Atreus" },
+    { question: "Em qual mitologia se baseia God of War 2018?", answer: "Mitologia Nórdica" },
+    { question: "Qual é o nome da esposa de Kratos?", answer: "Lysandra" },
+    { question: "Qual é o principal rival de Kratos em God of War?", answer: "Zeus" },
+    { question: "Que arma Kratos usa em God of War 2018?", answer: "Machado Leviathan" },
+    { question: "Quem é o deus da guerra na mitologia nórdica?", answer: "Tyr" },
+    { question: "Qual criatura mitológica Kratos enfrenta no começo do primeiro jogo?", answer: "Minotauro" },
+    { question: "Qual é o nome da deusa da sabedoria que ajuda Kratos?", answer: "Athena" },
+    { question: "Em que cidade Kratos se torna o novo deus da guerra?", answer: "Atenas" },
+    { question: "Qual é o título do primeiro jogo da série?", answer: "God of War (2005)" },
+    { question: "Quantos jogos principais existem na série God of War até 2021?", answer: "8 jogos" },
+    { question: "Qual é o nome da mãe de Atreus?", answer: "Faye" },
+    { question: "Quem trai Kratos no final de God of War II?", answer: "Zeus" },
+    { question: "Qual é o principal tema de God of War?", answer: "Paternidade" },
+    { question: "Qual é a data de lançamento de God of War: Ragnarok?", answer: "9 de novembro de 2022" }
+];
+
+const container = document.getElementById('cards-container');
+questions.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="card-inner">
+            <div class="card-front">${q.question}</div>
+            <div class="card-back">${q.answer}</div>
+        </div>
+    `;
+    container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
